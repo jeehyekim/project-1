@@ -40,7 +40,6 @@ var fishermanList = {
 var lists = [ graphicList, fishermanList];
 
 
-
 app.set("view engine", "ejs");
 
 app.use(express.static("public"));
@@ -55,7 +54,7 @@ app.get('/home', function(req, res) {
   res.render("home");
 });
 
-console.log(lists);
+console.log("It lives!");
 
 
  app.listen(process.env.PORT || 3000);
