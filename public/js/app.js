@@ -15,4 +15,7 @@ $(document).ready(function(){
   		console.log('clicked on login ');
   });
 
+  $('#popover').popover({html:true});
+    
 });
+

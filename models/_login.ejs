@@ -6,3 +6,40 @@
 
 
       <% include ../models/_login.ejs %>
+
+
+
+
+
+
+      var todos = [{name: "pay bills", _id: 1345654}, {name: "laundry", _id: 8767}];
+
+
+var week = [
+		{ day: 'Monday',
+		  todos: todos},
+		{ day: 'Tuesday',
+		  todos: todos},
+		{ day: 'Wednesday',
+		  todos: todos},
+		{ day: 'Thursday',
+		  todos: todos},
+		{ day: 'Friday',
+		  todos: todos},
+		{ name: 'Saturday',
+		  todos: todos},
+		{ name: 'Sunday',
+		  todos: todos}];
+
+var graphicList = {
+	name: "graphic design",
+	//key: 'daily' value is from variable above. 
+	daily: week
+};
+
+var fishermanList = {
+	name: "fishermen",
+	daily: week
+};
+
+var lists = [ graphicList, fishermanList];

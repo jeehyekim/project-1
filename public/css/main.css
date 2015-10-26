@@ -27,3 +27,25 @@ h2 {
 .navbar button {
 	margin-top: 30px;
 }
+
+#popover {
+	font-size: 24px;
+}
+
+#new-list-title {
+	width: 200px;
+}
+
+#sunday, #monday, #tuesday, #wednesday, #thursday, #friday, #saturday {
+	width: 300px;
+	display: inline-block;
+}
+
+#new-weekly {
+	width: 2500px;
+	overflow:auto;
+/*	overflow-x: scroll;
+	overflow-y: hidden;*/
+	white-space: nowrap;
+	float: clear both;
+}

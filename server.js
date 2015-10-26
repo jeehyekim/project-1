@@ -7,45 +7,14 @@ var bodyParser = require("body-parser");
 // var mongoose = require("mongoose");
 // var db = require("./models/index");
 
-var todos = [{name: "pay bills", _id: 1345654}, {name: "laundry", _id: 8767}];
-
-
-var daily = [
-		{ day: 'Monday',
-		  todos: todos},
-		{ day: 'Tuesday',
-		  todos: todos},
-		{ day: 'Wednesday',
-		  todos: todos},
-		{ day: 'Thursday',
-		  todos: todos},
-		{ day: 'Friday',
-		  todos: todos},
-		{ name: 'Saturday',
-		  todos: todos},
-		{ name: 'Sunday',
-		  todos: todos}];
-
-var graphicList = {
-	name: "graphic design",
-	//key: 'daily' value is from variable above. 
-	daily: daily
-};
-
-var fishermanList = {
-	name: "fishermen",
-	daily: daily
-};
-
-var lists = [ graphicList, fishermanList];
-
-
+//MIDDLEWARE
 app.set("view engine", "ejs");
 
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
 
 
+//ROUTES
 app.get('/', function(req, res) {
   res.render("index");
 });
@@ -53,6 +22,14 @@ app.get('/', function(req, res) {
 app.get('/home', function(req, res) {
   res.render("home");
 });
+
+app.get('/new', function(req, res) {
+	res.render("create");
+});
+
+// app.get('/create',function(req, res){
+// 	res.render('create')
+// })
 
 console.log("It lives!");
 

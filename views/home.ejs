@@ -23,10 +23,8 @@
         <a class="navbar-brand navbar-left" href="#">
           <img alt="brand" src="JK logo.png">
         </a>
-
-        <button type="button" class="btn btn-default navbar-btn navbar-right" id="create-plan" data-toggle='modal' data-target='#login-modal'>Create +</button>
-
-          </div>
+        <a id="popover" type="button" class="btn btn-default navbar-btn navbar-right" rel="popover" data-placement="bottom" data-content="<form class='form-group'><input type='text' class='form-control list-group-item' id='new-list-title' placeholder='Title'></form>">+</a>
+      </div>
     </nav>
     <div class="container" id="currentdate">
      <h2>Friday, October 23, 2015</h2>
@@ -35,6 +33,9 @@
       <!-- <div class="col-sm-2 col-sm-offset-1">
         
       </div> -->
+
+      <!-- sample data -->
+      <!-- to be populated with lists created + stored in db -->
       <div class="col-sm-6 col-sm-offset-3">
         <div class="panel">
           <div class="panel-heading">
@@ -48,6 +49,7 @@
             </ul>
           </div>
         </div>
+
         <div class="panel">
           <div class="panel-heading">
             <h4 class="panel-title">List Title 2</h4>
