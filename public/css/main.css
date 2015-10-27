@@ -24,6 +24,10 @@ h2 {
 	margin-right: 20px;
 }
 
+.navbar #logout-button {
+	margin-right: 20px;
+}
+
 .navbar button {
 	margin-top: 30px;
 }
@@ -42,7 +46,7 @@ h2 {
 }
 
 #new-weekly {
-	width: 2500px;
+	width: auto;
 	overflow:auto;
 /*	overflow-x: scroll;
 	overflow-y: hidden;*/
