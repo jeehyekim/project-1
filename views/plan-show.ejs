@@ -18,35 +18,33 @@
       </div>
     </nav>
 
-    <%= plan.title %>
 
     <div class="container" id="currentdate">
      <h2>Friday, October 23, 2015</h2>
+    <h4> <%= plan.title %> </h4>
     </div>
 
     <div class="container">
     <!-- full week panel -->
       <div class="panel" id="new-plan" >
+      <%= plan %>
       <!-- daily panels -->
-
-       <% for(var i in plan.days) { %>
+       <% for (var i in plan.days) { %>
 
         <div class="panel">
           <div class="panel-heading">
-            <h4 class="panel-title"> <%= plan.days[i] %> </h4>
+            <h4 class="panel-title"> <%= plan.days[i].name %> </h4>
           </div>
           <div class="panel-body">
-            <div class="form-group" >
-              <input type="text" class="form-control list-group-item" placeholder="new task">
-              <input type="text" class="form-control list-group-item" placeholder="new task">
-              <input type="text" class="form-control list-group-item" placeholder="new task">
-            </div>
+            <input type="text" class="form-control list-group-item" id="new-todo" placeholder="new task">
+            <li class="list-group-item"></li>
             <div class="modal-footer">
                 <button type="submit" class="btn btn-primary pull-right" id="daily-save">Save</button>
             </div>
           </div>
         </div>
         <% } %>
+        
 
       </div>
     </div>

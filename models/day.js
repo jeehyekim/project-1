@@ -7,10 +7,10 @@ var TodoSchema = new Schema({
 });
 
 var DaySchema = new Schema({
+	// plan:  { type: Number, ref: 'Plan' },
 	name : String,
 	todos: [TodoSchema]
 });
-
 
 var Day = mongoose.model('Day', DaySchema);
 

@@ -27,11 +27,19 @@ $(document).ready(function(){
   $('body').on('submit', '#new-plan', function(e) {
     e.preventDefault();
     var plan = $(this).serialize();
-    console.log("This is the new plan: " + plan);
-    
+    console.log(plan);
+
     $.post('/plans', plan, function(data) {
+      console.log("This is the new plan: " + data.title);
+
       window.location.href = '/plans/' + data._id;
     });
+  });
+
+
+  $('#new-todo').on('submit', function (e) {
+    e.preventDefault();
+
   });
 
   
