@@ -45,7 +45,7 @@ h3 {
 	width: 200px;
 }
 
-#plan-days {
+#plan-days, .panel {
 	/*width: 300px;*/
 	/*float:left;*/
 	display: inline-block;

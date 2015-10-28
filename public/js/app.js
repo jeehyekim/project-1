@@ -46,6 +46,7 @@ $(document).ready(function(){
       var todo = {
         body: $(this).val()
       };
+      var dayPanel = $(this).closest(".panel");
       $(this).val('');
       var dayId = $(this).data("id");
       console.log('this is my new to do: ', todo);
@@ -53,8 +54,8 @@ $(document).ready(function(){
       $.post('/days/' + dayId + "/todos", todo, function(data) {
         var todo = "<li class='list-group-item'>" + data.body + "<span data-id='new-todo'class='close delete'>x</span></li>";
         console.log("passed in data:", data);
-        // $(this).siblings('.day-todos').first().append(todo);
-        $('#new-todo').append(todo);
+        // $('.panel-heading').siblings('.day-todos').first().append(todo);
+        $(dayPanel).append(todo);
         // $('.new-todo')[0].reset();
       });
     

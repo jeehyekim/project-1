@@ -27,27 +27,23 @@
 
     <div class="container" id="new-weekly">
     <!-- full week panel -->
-      <div class="panel col-sm-10" id="plan-days" >
+      <div class="panels row" id="plan-days" >
         <!-- daily panels -->
         <% for(var i=0; i<plan.days.length; i++) { %>
-          <div class="panel" id="plan-days">
+        <div class="panel col-xs-3 col-sm-3 col-md-2 col-lg-1" id="<%= plan.days[i]._id %>">
             <div class="panel-heading">
               <h3 class="panel-title"> <%= plan.days[i].name %> </h3>
             </div>
             <div class="panel-body">
               <input type="text" class="form-control list-group-item new-todo" data-id="<%= plan.days[i]._id %>" placeholder="add new task">
-              <ul class="list-group day-todos">
-                <% plan.days[i].todos.forEach(function(todo) { %>
 
-                  <li class='list-group-item'><%= plan.days[i].todos.body %><span data-id='new-todo'class='close delete'>x</span></li>"
-
-                <% }); %>
-              </ul>
+                
+                    <!-- <li class='list-group-item'>meh<span data-id='new-todo'class='close delete'>x</span></li> -->
+    
                
-              
             </div>
           </div>
-        <% } %>
+        <% }; %>
       </div>
     </div>
 
