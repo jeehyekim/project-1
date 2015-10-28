@@ -41,31 +41,41 @@ $(document).ready(function(){
 
   // test from here
   // create new todos in days
-  $('#new-todo').keydown(function (e) {
+  $('.new-todo').keydown(function (e) {
     if(e.keyCode == 13) {
-      console.log('new todo made');
-      var newTodo = $(this).val();
-      // $('#new-todo').val('');
-      console.log('this is a new to do: ' ,newTodo);
-
-      $.ajax({
-        url:'/days',
-        type: "POST", 
-        data: newTodo
-      })
-      .done(function(data) {
-        console.log('my posted todo: ', newTodo);
-        var postedTodo = "<li class='list-group-item'>" + newTodo + "<span data-id='new-todo'class='close delete'>x</span></li>";
-        $('#new-todos').append(postedTodo);     
-      })
-      .fail(function(data) {
-        console.log('failed to post');
+      var todo = {
+        body: $(this).val()
+      };
+      $(this).val('');
+      var dayId = $(this).data("id");
+      console.log('this is my new to do: ', todo);
+     
+      $.post('/days/' + dayId + "/todos", todo, function(data) {
+        var todo = "<li class='list-group-item'>" + data.body + "<span data-id='new-todo'class='close delete'>x</span></li>";
+        console.log("passed in data:", data);
+        // $(this).siblings('.day-todos').first().append(todo);
+        $('#new-todo').append(todo);
+        // $('.new-todo')[0].reset();
       });
+    
 
 
-      // $.post('/days', function(data) {
-      //   // window.location.href = '/days/' + data._id;
+      // $.ajax({
+      //   url:'/days',
+      //   type: "POST", 
+      //   data: newTodo
+      // })
+      // .done(function(data) {
+      //   console.log('my posted todo: ', newTodo);
+      //   var postedTodo = "<li class='list-group-item'>" + newTodo + "<span data-id='new-todo'class='close delete'>x</span></li>";
+      //   $('#new-todos').append(postedTodo);     
+      //   window.location.href = '/days';
+      // })
+      // .fail(function(data) {
+      //   console.log('failed to post');
       // });
+
+
     }
 
   });

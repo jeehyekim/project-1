@@ -15,6 +15,9 @@
         <button type="button" class="btn btn-default navbar-btn navbar-right" id="logout-button" data-toggle='modal' data-target='#login-modal'>Log out</button>
       </div>
     </nav>
+    <% for(var i = 0; i<plans.length; i++) { %>
+      <a href="/plans/<%= plans[i]._id %>"><%= plans[i].title %></a>
+    <% } %>
 
     <div class="container" id="currentdate">
      <h2>Friday, October 23, 2015</h2>
@@ -22,7 +25,7 @@
     <div class="container">
      
       
-      <!-- to be populated with lists created + stored in db -->
+      <!-- to be populated with lists stored in db -->
       <div class="col-sm-6 col-sm-offset-3">
         <div class="panel">
           <div class="panel-heading">

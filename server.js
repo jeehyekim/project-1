@@ -32,9 +32,9 @@ app.get('/', function(req, res) {
 
 //home
 app.get('/home', function(req, res) {
-	Plan.find({}, function(err,plan) {
+	Plan.find({}, function(err,plans) {
 		if(err) console.log(err);
-  		res.render("home");
+  		res.render("home", {plans: plans});
 	});
 });
 
@@ -61,16 +61,16 @@ app.get('/home', function(req, res) {
 
 // create new plan - repeating days
 app.post('/plans', function(req, res) {
-	console.log("req.body is: " ,req.body);
+	// console.log("req.body is: " ,req.body);
 	var plan = req.body;
 	plan = new Plan(plan);
 
 
 	Plan.create(plan, function(err, plan) {
 		if (err) console.log(err);
-		console.log(plan);
-		console.log("plan title is:" + plan.title);
-		var daysList = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
+		// console.log(plan);
+		// console.log("plan title is:" + plan.title);
+		var daysList = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 		var days = [];
 		for(var i = 0; i<daysList.length; i++) {
 				var day = { name: daysList[i] };
@@ -78,6 +78,7 @@ app.post('/plans', function(req, res) {
 		}
 		// console.log(days);
 		Day.create(days, function(err, days) {
+			console.log(days);
 			plan.days = days;
 			plan.save(function(err, days) {
 			// console.log('plan=', plan);
@@ -88,6 +89,7 @@ app.post('/plans', function(req, res) {
 	});
 });
 
+// show new plan template
 app.get('/plans/:id', function(req, res) {
 	Plan.findById(req.params.id).populate('days').exec(function (err, plan) {
 		if(err) {
@@ -95,19 +97,20 @@ app.get('/plans/:id', function(req, res) {
 		}else {
 			console.log("new created plan is: " ,plan);
 			res.render('plan-show', {plan: plan});	
-			console.log(plan.days);
 		}
 	});
 
 });
 
-app.post('/days', function(req, res) {
-	console.log("posted todo: ", req.body);
-	var plan = Plan.findById({_id: req.params.id});
-	
-	// day.todos.push(req.body);
-	// day.save();
-	res.json(day);
+// create new todos
+app.post('/days/:id/todos', function(req, res) {
+	// console.log("new created todo: ", req.body);
+	var todo = req.body;
+	Day.findById(req.params.id).exec(function(err, day) {
+		day.todos.push(todo);
+		day.save();
+		res.status(201).json(todo);
+	});
 });
 
 app.get('/days/:id', function(req, res) {

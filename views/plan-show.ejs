@@ -10,7 +10,7 @@
           <img alt="brand" src="/images/JK_Logo.png">
         </a>
 
-        <button id="popover" name="title" class="btn btn-default navbar-btn navbar-right" rel="popover" data-placement="bottom" data-content="<form class='form-group'><input type='text' class='form-control list-group-item' id='new-list-title' placeholder='Title'></form>">+</button>
+        <button id="popover" name="title" class="btn btn-default navbar-btn navbar-right" rel="popover" data-placement="bottom" data-content="<form class='form-group'><input type='text' class='form-control list-group-item' id='new-list-title' placeholder='New Plan Title'></form>">+</button>
         
         <button type="button" class="btn btn-default navbar-btn navbar-right" id="logout-button" data-toggle='modal' data-target='#login-modal'>Log out</button>
 
@@ -21,33 +21,33 @@
 
     <div class="container" id="currentdate">
      <h2>Friday, October 23, 2015</h2>
+
     <h3> <%= plan.title %> </h3>
     </div>
 
     <div class="container" id="new-weekly">
     <!-- full week panel -->
       <div class="panel col-sm-10" id="plan-days" >
-      <!-- daily panels -->
-       <% for (var i in plan.days) { %>
+        <!-- daily panels -->
+        <% for(var i=0; i<plan.days.length; i++) { %>
+          <div class="panel" id="plan-days">
+            <div class="panel-heading">
+              <h3 class="panel-title"> <%= plan.days[i].name %> </h3>
+            </div>
+            <div class="panel-body">
+              <input type="text" class="form-control list-group-item new-todo" data-id="<%= plan.days[i]._id %>" placeholder="add new task">
+              <ul class="list-group day-todos">
+                <% plan.days[i].todos.forEach(function(todo) { %>
 
-        <div class="panel" id="plan-days">
-          <div class="panel-heading">
-            <h3 class="panel-title"> <%= plan.days[i].name %> </h3>
-          </div>
-          <div class="panel-body" id="day-todos">
-            <input type="text" class="form-control list-group-item" id="new-todo" placeholder="add new task">
+                  <li class='list-group-item'><%= plan.days[i].todos.body %><span data-id='new-todo'class='close delete'>x</span></li>"
 
-            
-             
-            
-            <!-- <div class="modal-footer"> -->
-                <!-- <button type="submit" class="btn btn-primary pull-right" id="daily-save">Save</button> -->
-            <!-- </div> -->
+                <% }); %>
+              </ul>
+               
+              
+            </div>
           </div>
-        </div>
         <% } %>
-        
-
       </div>
     </div>
 
