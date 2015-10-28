@@ -7,9 +7,11 @@ var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
 
 //MIDDLEWARE
+//set ejs as view engine
 app.set("view engine", "ejs");
-
+// serve js & css files
 app.use(express.static("public"));
+ // body parser config to accept our datatypes
 app.use(bodyParser.urlencoded({extended: true}));
 
 mongoose.connect( process.env.MONGOLAB_URI ||
@@ -19,10 +21,14 @@ mongoose.connect( process.env.MONGOLAB_URI ||
 var Plan = require('./models/plan.js');
 var Day = require('./models/day.js');
 
+
 //ROUTES
+// index , start page
 app.get('/', function(req, res) {
   res.render("index");
 });
+
+
 
 //home
 app.get('/home', function(req, res) {
@@ -33,48 +39,105 @@ app.get('/home', function(req, res) {
 });
 
 
-	// for(var i = 0; i<daysList.length; i++) {
-	// 	Day.create({name: daysList[i]}, function(err, day) {
-	// 		if(err) console.log(err);
-	// 		console.log(day);
-	// 		days.push(day);
-	// 	});
-	// }
+// createDays function - callback
+// function createDays(callback) {
+// 	var daysList = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+// 	var days = [];
 
-function createDays(callback) {
-	var daysList = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-	var days = [];
-
-	for  (var i in daysList) {
-		console.log(daysList[i]);
-		Day.create({name: daysList[i]}, function(err, day) {
-			if(err) console.log(err);
-			days.push(day);
-			console.log(day);
-			if (i == daysList.length) {
-				console.log('hi');
-				callback(days);
-			}
-		});
-	}
-}
+// 	for  (var i in daysList) {
+// 		console.log(daysList[i]);
+// 		Day.create({name: daysList[i]}, function(err, day) {
+// 			if(err) console.log(err);
+// 			days.push(day);
+// 			console.log(day);
+// 			if (i == daysList.length-1) {
+// 				console.log('hi');
+// 				callback(days);
+// 			}
+// 		});
+// 	}
+// }
 	
 
-// create new plan. trying to repeat
+// create new plan - repeating days
 app.post('/plans', function(req, res) {
-	console.log(req.body);
+	console.log("req.body is: " ,req.body);
 	var plan = req.body;
 	plan = new Plan(plan);
 
-	createDays(function (days) {	
-		console.log(days);
-		plan.days = days;
-		plan.save(function(err, plan) {
-			console.log(err);
-			console.log(plan);
+
+	Plan.create(plan, function(err, plan) {
+		if (err) console.log(err);
+		console.log(plan);
+		console.log("plan title is:" + plan.title);
+		var daysList = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
+		var days = [];
+		for(var i = 0; i<daysList.length; i++) {
+				var day = { name: daysList[i] };
+				days.push(day);
+		}
+		// console.log(days);
+		Day.create(days, function(err, days) {
+			plan.days = days;
+			plan.save(function(err, days) {
+			// console.log('plan=', plan);
+			// console.log('days = ',days);
 			res.json(plan);	
+			});
 		});
 	});
+});
+
+app.get('/plans/:id', function(req, res) {
+	Plan.findById(req.params.id).populate('days').exec(function (err, plan) {
+		if(err) {
+			console.log(err);
+		}else {
+			console.log("new created plan is: " ,plan);
+			res.render('plan-show', {plan: plan});	
+			console.log(plan.days);
+		}
+	});
+
+});
+
+app.post('/days', function(req, res) {
+	console.log("posted todo: ", req.body);
+	var plan = Plan.findById({_id: req.params.id});
+	
+	// day.todos.push(req.body);
+	// day.save();
+	res.json(day);
+});
+
+app.get('/days/:id', function(req, res) {
+	
+});
+
+
+// for(var i = 0; i<daysList.length; i++) {
+// 	Day.create({name: daysList[i]}, function(err, day) {
+// 		if(err) console.log(err);
+// 		console.log(day);
+// 		days.push(day);
+// 	});
+// }
+
+// create new plan. trying to repeat
+// app.post('/plans2', function(req, res) {
+// 	console.log(req.body);
+// 	var plan = req.body;
+// 	plan = new Plan(plan);
+
+// 	createDays(function (days) {	
+// 		console.log(days);
+// 		plan.days = days;
+// 		plan.save(function(err, plan) {
+// 			console.log(err);
+// 			console.log(plan);
+// 			res.json(plan);	
+// 		});
+// 	});
 
 	// Plan.create(plan, function(err, plan) {
 	// 	if (err) console.log(err);
@@ -90,23 +153,23 @@ app.post('/plans', function(req, res) {
 	// 	// 	res.json(plan);
 	// 	// });
 	// });
-});
+// });
 
-app.get('/plans/:id', function(req, res) {
-	Plan.findById(req.params.id).populate('days').exec(function (err, plan) {
-		if(err) {
-			console.log(err);
-		}else {
-			res.render('plan-show', {plan: plan});	
-		}
-	});
 
-});
+// createDays(function (days) {	
+// 	console.log(days);
+// 	plan.days = days;
+// 	plan.save(function(err, plan) {
+// 		console.log(err);
+// 		console.log(plan);
+// 		res.json(plan);	
+// 	});
+// });
 
 console.log("It lives!");
 
 
- app.listen(process.env.PORT || 3000);
+app.listen(process.env.PORT || 3000);
 
 
 

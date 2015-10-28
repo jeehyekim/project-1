@@ -1,19 +1,40 @@
 
 // index GET '/plans'
-// create POST '/plans'
+// create plan with days POST '/plans'
+// show full plan with days GET '/plans/:id'
+// create todos POST '/plans/:id/days/:id/todos'
+// show full plan 
+
 // destroy DELETE '/plans/:id'
-// show GET '/plans/:id'
 // update PUT '/plans/:id'
 
 
+show '/home'
+ // get plan from database
 
-// get plan from database
-// return to client with plan show template
-  // save days into plan on create plan - brings back plan with seven ids
-  // loop over days inside of plan show.
+create
+x // return to client with new plan template 
+x  // save days into plan on create plan - brings back plan with seven ids
+x  // loop over days inside of plan show.
 
-// submit new to do form with day id.
-// todo create route post - days / :id/ todos
-// return the todo
-// append to right day
+create
+x // submit new to do form with day id.
+ // todo create route post - days / :id/ todos ??
+ // test creating new todos
+ // return the todo
+ // append to right day
+
+ // create POST route when receiving new todos
+ // create GET route when rendering page back with appended todos
+
+ // add save button for plan-save to save entire plan
+ //
+
+
+
+
+
+ // figure out why loop is creating new blank 'day' div
+ // 
+ // logo design for app
 

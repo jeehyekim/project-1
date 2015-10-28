@@ -13,5 +13,7 @@ var DaySchema = new Schema({
 });
 
 var Day = mongoose.model('Day', DaySchema);
+// var Todo = mongoose.model('Todo', TodoSchema);
 
 module.exports = Day;
+// module.exports = Todo;

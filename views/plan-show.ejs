@@ -6,8 +6,8 @@
   <body>
     <nav class="navbar">
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <a class="navbar-brand navbar-left" href="#">
-          <img alt="brand" src="./images/JK_Logo.png">
+        <a class="navbar-brand navbar-left" href="/home">
+          <img alt="brand" src="/images/JK_Logo.png">
         </a>
 
         <button id="popover" name="title" class="btn btn-default navbar-btn navbar-right" rel="popover" data-placement="bottom" data-content="<form class='form-group'><input type='text' class='form-control list-group-item' id='new-list-title' placeholder='Title'></form>">+</button>
@@ -21,26 +21,28 @@
 
     <div class="container" id="currentdate">
      <h2>Friday, October 23, 2015</h2>
-    <h4> <%= plan.title %> </h4>
+    <h3> <%= plan.title %> </h3>
     </div>
 
-    <div class="container">
+    <div class="container" id="new-weekly">
     <!-- full week panel -->
-      <div class="panel" id="new-plan" >
-      <%= plan %>
+      <div class="panel col-sm-10" id="plan-days" >
       <!-- daily panels -->
        <% for (var i in plan.days) { %>
 
-        <div class="panel">
+        <div class="panel" id="plan-days">
           <div class="panel-heading">
-            <h4 class="panel-title"> <%= plan.days[i].name %> </h4>
+            <h3 class="panel-title"> <%= plan.days[i].name %> </h3>
           </div>
-          <div class="panel-body">
-            <input type="text" class="form-control list-group-item" id="new-todo" placeholder="new task">
-            <li class="list-group-item"></li>
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-primary pull-right" id="daily-save">Save</button>
-            </div>
+          <div class="panel-body" id="day-todos">
+            <input type="text" class="form-control list-group-item" id="new-todo" placeholder="add new task">
+
+            
+             
+            
+            <!-- <div class="modal-footer"> -->
+                <!-- <button type="submit" class="btn btn-primary pull-right" id="daily-save">Save</button> -->
+            <!-- </div> -->
           </div>
         </div>
         <% } %>

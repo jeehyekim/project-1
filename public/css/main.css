@@ -12,6 +12,11 @@ h2 {
 	margin: 40px 0;
 }
 
+h3 {
+	text-align: center;
+
+}
+
 .navbar-brand {
 	padding-bottom: 30px;
 }
@@ -40,16 +45,23 @@ h2 {
 	width: 200px;
 }
 
-#sunday, #monday, #tuesday, #wednesday, #thursday, #friday, #saturday {
-	width: 300px;
+#plan-days {
+	/*width: 300px;*/
+	/*float:left;*/
 	display: inline-block;
+	margin:0;
+}
+
+div.panel-body {
+	margin: 0;
+	padding: 0;
 }
 
 #new-weekly {
 	width: auto;
 	overflow:auto;
-/*	overflow-x: scroll;
-	overflow-y: hidden;*/
+	/*overflow-x: scroll;*/
+	/*overflow-y: hidden;*/
 	white-space: nowrap;
 	float: clear both;
 }
