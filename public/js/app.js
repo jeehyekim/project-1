@@ -41,9 +41,9 @@ $('#signup').on('submit', function(e) {
   		console.log('clicked on login ');
   });
 
-  $('#login').validate();
+  // $('#login').validate();
 
-  $('#signup').validate();
+  // $('#signup').validate();
 
   // logout modal
   $('#logout-button').on('submit', function(e){
