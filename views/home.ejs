@@ -15,19 +15,25 @@
         <button type="button" class="btn btn-default navbar-btn navbar-right" id="logout-button" data-toggle='modal' data-target='#login-modal'>Log out</button>
       </div>
     </nav>
-    <% for(var i = 0; i<plans.length; i++) { %>
-      <a href="/plans/<%= plans[i]._id %>"><%= plans[i].title %></a>
-    <% } %>
 
     <div class="container" id="currentdate">
-     <h2>Friday, October 23, 2015</h2>
-    </div>
-    <div class="container">
-     
+      <h2>Friday, October 23, 2015</h2>
+
+      <div class="container" id="user-plans">
       
-      <!-- to be populated with lists stored in db -->
-      
+        <% for(var i = 0; i<plans.length; i++) { %>
+  
+          <div class="panel" id="<%= plans._id %>">
+            <div class="panel-heading">
+              <h3><%= plans[i].title %></h3>
+            </div>
+            
+          </div>
+
+        <% } %>
+
       </div>
+
     </div>
 
   </body>

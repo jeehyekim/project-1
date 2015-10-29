@@ -1,10 +1,7 @@
 
 // index GET '/plans'
-// create plan with days POST '/plans'
-// show full plan with days GET '/plans/:id'
-// create todos POST '/plans/:id/days/:id/todos'
-// show full plan 
-
+// create POST '/plans'
+// show GET '/plans/:id'
 // destroy DELETE '/plans/:id'
 // update PUT '/plans/:id'
 
@@ -17,24 +14,30 @@ x // return to client with new plan template
 x  // save days into plan on create plan - brings back plan with seven ids
 x  // loop over days inside of plan show.
 
-create
 x // submit new to do form with day id.
- // todo create route post - days / :id/ todos ??
- // test creating new todos
- // return the todo
- // append to right day
+x // todo create route post - days / :id/ todos ??
+x // test creating new todos
+x // return the todo
+x // append to right day - yay thanks Matt.
 
  // create POST route when receiving new todos
  // create GET route when rendering page back with appended todos
 
- // add save button for plan-save to save entire plan
- //
+ // render all the saved plans in database on the homepage
+ // create user schema
+ // validate signup and login
+ // set up password salt and hash
 
 
 
 
 
- // figure out why loop is creating new blank 'day' div
- // 
+x // figure out why loop is creating new blank 'day' div
+ // styling. get rid of jumbotron. background image or background color
+ // find googlefont to use
+ // FIGURE OUT WHAT YOU'RE CALLING YOUR APP. like any day now... >:(
  // logo design for app
+ // create readme documentation
+ // fill out project checkin survey
+ //
 

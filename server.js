@@ -39,6 +39,7 @@ app.get('/home', function(req, res) {
 });
 
 
+
 // createDays function - callback
 // function createDays(callback) {
 // 	var daysList = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -113,7 +114,7 @@ app.post('/days/:id/todos', function(req, res) {
 	});
 });
 
-app.get('/days/:id', function(req, res) {
+app.get('/home', function(req, res) {
 	
 });
 

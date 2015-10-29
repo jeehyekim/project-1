@@ -3,9 +3,7 @@
 }
 */
 
-input {
-	margin: 10px;
-}
+
 
 h2 {
 	text-align: center;
@@ -14,7 +12,7 @@ h2 {
 
 h3 {
 	text-align: center;
-
+	margin: 0;
 }
 
 .navbar-brand {
@@ -37,31 +35,36 @@ h3 {
 	margin-top: 30px;
 }
 
+.new-todo {
+	border: none;
+}
+
+.col-xs-1 {
+	width: 200px;
+}
+
+.panels {
+
+
+}
+
 #popover {
 	font-size: 24px;
 }
 
 #new-list-title {
-	width: 200px;
+	width: auto;
 }
 
-#plan-days, .panel {
-	/*width: 300px;*/
-	/*float:left;*/
+#plan-days {
 	display: inline-block;
-	margin:0;
-}
-
-div.panel-body {
-	margin: 0;
+	margin-top: 40px;
 	padding: 0;
 }
 
+
 #new-weekly {
-	width: auto;
-	overflow:auto;
-	/*overflow-x: scroll;*/
-	/*overflow-y: hidden;*/
-	white-space: nowrap;
-	float: clear both;
+	margin:auto;
+	padding:0;
+	width: 1400px;
 }

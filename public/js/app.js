@@ -52,30 +52,13 @@ $(document).ready(function(){
       console.log('this is my new to do: ', todo);
      
       $.post('/days/' + dayId + "/todos", todo, function(data) {
-        var todo = "<li class='list-group-item'>" + data.body + "<span data-id='new-todo'class='close delete'>x</span></li>";
+        var todo = "<li class='list-group-item'>" + data.body + "<span data-id='new-todo'class='close delete'></span></li>";
         console.log("passed in data:", data);
         // $('.panel-heading').siblings('.day-todos').first().append(todo);
         $(dayPanel).append(todo);
         // $('.new-todo')[0].reset();
       });
-    
-
-
-      // $.ajax({
-      //   url:'/days',
-      //   type: "POST", 
-      //   data: newTodo
-      // })
-      // .done(function(data) {
-      //   console.log('my posted todo: ', newTodo);
-      //   var postedTodo = "<li class='list-group-item'>" + newTodo + "<span data-id='new-todo'class='close delete'>x</span></li>";
-      //   $('#new-todos').append(postedTodo);     
-      //   window.location.href = '/days';
-      // })
-      // .fail(function(data) {
-      //   console.log('failed to post');
-      // });
-
+  
 
     }
 
