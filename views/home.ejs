@@ -34,7 +34,11 @@
                 <div class="panel-heading">
                   <h4 class="panel-title"> <%= days[j].name %> </h4>
                 </div>
-                
+                  <!-- <div class="panel-body"> -->
+                  <% for(var k = 0; k < days[j].todos.length; k++) { %>
+                      <li class="list-group-item panel-body"> <%= days[j].todos[i] ? days[j].todos[k].body : '' %> </li>
+                  <% } %>
+                  <!-- </div> -->
               </div>
             <% } %>
           </div>

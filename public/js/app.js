@@ -15,18 +15,14 @@ $(document).ready(function(){
 $('#signup').on('submit', function(e) {
   // e.preventDefault();
   var signupData = $('#signup').serialize();
-  console.log(signupData);
+  
+  console.log('signup data is: ' , signupData);
 
   $.post('/users', signupData, function(err, response) {
-    if(err) {
-      console.log(err);
-    } else {
     console.log(response);
-    }
   });
 });
 
-  
 
   $('#login-link').on('click', function(e) {
     // e.preventDefault();

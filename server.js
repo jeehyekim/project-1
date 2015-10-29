@@ -24,11 +24,11 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 mongoose.connect( process.env.MONGOLAB_URI ||
                   process.env.MONGOHQ_URL || 
-                  'mongodb://localhost/weekly-plan'  );
+                  'mongodb://localhost/weekhack'  );
 
 var Plan = require('./models/plan.js');
 var Day = require('./models/day.js');
-// var User = require('./models/user');
+var User = require('./models/user.js');
 
 
 //ROUTES
@@ -39,7 +39,7 @@ app.get('/', function(req, res) {
 
 //home - what user sees after logging in
 app.get('/home', function(req, res) {
-	Plan.find({}, function(err,plans) {
+	Plan.find({}).limit(10).populate('days').exec(function(err,plans) {
 		if(err) console.log(err);
   		res.render("home", {plans: plans});
 	});
@@ -53,9 +53,8 @@ app.get('/signup', function (req, res) {
 
 // create new user / sign up
 app.post('/users', function(req, res) {
-	var email = 
 	console.log('request email: ', req.body.email);
-	// debugger
+	res.json('create user works');
 });
 
 
@@ -63,6 +62,13 @@ app.get('/', function(req, res) {
 	console.log("login after signing up");
 });
 
+
+app.post('/users', function (req, res) {
+  // use the email and password to authenticate here
+  User.createSecure(req.body.email, req.body.password, function (err, user) {
+    res.json(user);
+  });
+});
 
 
 // createDays function - callback

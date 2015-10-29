@@ -92,6 +92,15 @@ button {
 .panel-heading {
 	border:none;
 	padding:none; !important
+	text-align: center;
+}
+
+.panel-title {
+	text-align: center;
+}
+
+.plan-name {
+	margin-bottom: 20px;
 }
 
 #login-link {
