@@ -11,12 +11,39 @@ $(document).ready(function(){
   		console.log('clicked on sign up');
   });
 
+
+$('#signup').on('submit', function(e) {
+  // e.preventDefault();
+  var signupData = $('#signup').serialize();
+  console.log(signupData);
+
+  $.post('/users', signupData, function(err, response) {
+    if(err) {
+      console.log(err);
+    } else {
+    console.log(response);
+    }
+  });
+});
+
+  
+
+  $('#login-link').on('click', function(e) {
+    // e.preventDefault();
+    $('#signup-modal').modal('hide');
+    $('login-modal').modal('show');
+  });
+
   // login modal
   $('#login-button').on('submit', function(e){
   		// e.preventDefault();
   		$('login-modal').modal();
   		console.log('clicked on login ');
   });
+
+  $('#login').validate();
+
+  $('#signup').validate();
 
   // logout modal
   $('#logout-button').on('submit', function(e){

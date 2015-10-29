@@ -4,30 +4,32 @@
  <% include _head.ejs %> 
 
 <body>
-
+<div>
+  
   <nav class="navbar">
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <a class="navbar-brand navbar-left" href="home.ejs">
-        <img alt="brand" src="/images/JK_Logo.png">
+      <a class="navbar-brand navbar-left" href="/home">
+        <img alt="brand" src="images/JK_Logo.png">
       </a>
 
-      <button type="button" class="btn btn-default navbar-btn navbar-right" id="login-button" data-toggle='modal' data-target='#login-modal'>Log in</button>
-      <button class="btn btn-default navbar-btn navbar-right" type="button" id="signup-button" data-toggle='modal' data-target='#signup-modal'>Sign Up</button>
+      <button type="button" class="btn navbar-btn navbar-right" id="login-button" data-toggle='modal' data-target='#login-modal'>Log in</button>
+      <button class="btn navbar-btn navbar-right" type="button" id="signup-button" data-toggle='modal' data-target='#signup-modal'>Sign Up</button>
     </div>
   </nav>
 
-  <div class="jumbotron">
-    <div class="container">
-      <header class="page-header">
-        <h1>Project Title</h1>
-        <p>project information.. blah blah..</p>
-        <button class="btn btn-default navbar-btn" type="button" id="signup-button" data-toggle='modal' data-target='#signup-modal'>Sign Up</button>
-      </header>
+    <div class="header">
+      <h1>weekhack</h1>
+      <p>themed days to optimize productivity</p>
+      <button class="btn navbar-btn" type="button" id="signup-button" data-toggle='modal' data-target='#signup-modal'>Sign Up Now</button>
     </div>
-  </div>
+
 
     <!-- about content -->
-  <div class="container">
+  <div class="about">
+
+    <p class="col-sm-2 col-sm-offset-3">optimize productivity and manage mental energy</p>
+    <p class="col-sm-2">free your mind to focus on critical tasks</p>
+    <p class="col-sm-2">customize your week and days for your needs</p>
 
   </div>
 
@@ -37,7 +39,31 @@
   </div>
 
   <!-- signup modal -->
-    <% include _signup.ejs %>
+    <div class="container">
+      <div class="modal fade" tabindex="-1" id="signup-modal" role="dialog">
+        <div class="modal-dialog" role='document'>
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Sign Up</h4>
+            </div>
+            <div class="modal-body">
+              <form class="form-group" id="signup">
+                <div class="form-group" id="signup-form">
+                  <input type="text" class="form-control list-group-item" id="fullname" placeholder="Full Name">
+                  <input type="text" class="form-control" id="username" placeholder="Username">
+                  <input type="email" class="form-control" id="email" placeholder="Email" required>
+                  <input type="password" class="form-control" id="password" placeholder="Password" required>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary pull-right" id="signup-submit">Sign Up</button>
+                    <a class="btn" href="#" data-toggle="modal" data-target="#login-modal" id="login-link">Login</a>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
 
     <!-- login modal -->
     <div class="modal fade" tabindex="-1" id="login-modal" role="dialog">
@@ -47,12 +73,10 @@
             <h4 class="modal-title">Log in</h4>
           </div>
           <div class="modal-body">
-            <form class="form-group">
+            <form class="form-group" id="login">
               <div class="form-group" id="login-form">
-                <input type="text" class="form-control list-group-item" id="fullname" placeholder="Full Name">
-                <input type="text" class="form-control" id="username" placeholder="Username">
-                <input type="email" class="form-control" id="email" placeholder="Email">
-                <input type="password" class="form-control" id="password" placeholder="Password">
+                <input type="email" class="form-control" id="email" placeholder="Email" required>
+                <input type="password" class="form-control" id="password" placeholder="Password" required>
               </div>
               <div class="modal-footer">
                   <button type="submit" class="btn btn-primary pull-right">Log in</button>
@@ -63,6 +87,7 @@
       </div>
     </div>
   </div>
+</div>
 
 </body>
 </html>

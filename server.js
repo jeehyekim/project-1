@@ -5,6 +5,7 @@ var express = require("express");
 var app = express();
 var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
+var session = require('express-session');
 
 //MIDDLEWARE
 //set ejs as view engine
@@ -14,12 +15,20 @@ app.use(express.static("public"));
  // body parser config to accept our datatypes
 app.use(bodyParser.urlencoded({extended: true}));
 
+// app.use(session({
+// 	saveUnitialized: true,
+// 	resave: true,
+// 	secret: "SuperSecret",
+// 	cookie: { maxAge: 60000}
+// }));
+
 mongoose.connect( process.env.MONGOLAB_URI ||
                   process.env.MONGOHQ_URL || 
                   'mongodb://localhost/weekly-plan'  );
 
 var Plan = require('./models/plan.js');
 var Day = require('./models/day.js');
+// var User = require('./models/user');
 
 
 //ROUTES
@@ -28,14 +37,30 @@ app.get('/', function(req, res) {
   res.render("index");
 });
 
-
-
-//home
+//home - what user sees after logging in
 app.get('/home', function(req, res) {
 	Plan.find({}, function(err,plans) {
 		if(err) console.log(err);
   		res.render("home", {plans: plans});
 	});
+});
+
+
+// sign up route
+app.get('/signup', function (req, res) {
+  res.render('home');
+});
+
+// create new user / sign up
+app.post('/users', function(req, res) {
+	var email = 
+	console.log('request email: ', req.body.email);
+	// debugger
+});
+
+
+app.get('/', function(req, res) {
+	console.log("login after signing up");
 });
 
 

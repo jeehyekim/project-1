@@ -1,22 +1,50 @@
-/*#page-wrapper {
-	background-color: lightblue;
+/** {
+	font-family: 'Montserrat', sans-serif;
+
+}*/
+
+.header {
+	text-align: center;
 }
-*/
 
-
+h1 {
+	color:#00ccd6;
+	font-weight: 700;
+	font-family: 'Montserrat', sans-serif;
+	font-size:60px;
+	margin-top: 100px;
+	margin-bottom: 50px;
+}
 
 h2 {
 	text-align: center;
-	margin: 40px 0;
+	margin-bottom: 40px;
 }
 
-h3 {
+h3, p {
 	text-align: center;
 	margin: 0;
 }
 
-.navbar-brand {
-	padding-bottom: 30px;
+p {
+	font-size: 20px;
+	font-family: 'Roboto', sans-serif;
+	font-weight:500;
+	margin-bottom: 40px;
+}
+
+h4.panel-title {
+	font-size: 20px;
+}
+
+button {
+	background-color: #00ccd6;
+	color:white;
+}
+
+.navbar {
+	font-family: 'Roboto', sans-serif;
+	font-weight: 500;
 }
 
 .navbar-right {
@@ -25,14 +53,27 @@ h3 {
 
 .navbar #signup-button {
 	margin-right: 20px;
+	color: white;
 }
 
 .navbar #logout-button {
 	margin-right: 20px;
+	color:white;
 }
 
 .navbar button {
 	margin-top: 30px;
+	background-color:#00ccd6;
+	color:white;
+}
+
+/*.about {
+	margin-top: 
+}*/
+
+.about p {
+	font-weight: 400;
+	margin-top: 200px;
 }
 
 .new-todo {
@@ -44,14 +85,23 @@ h3 {
 }
 
 .panels {
-
-
+	height: 100px;
+	clear: both;
 }
 
-#popover {
+.panel-heading {
+	border:none;
+	padding:none; !important
+}
+
+#login-link {
+	margin-right: 20px;
+}
+
+/*#popover {
 	font-size: 24px;
 }
-
+*/
 #new-list-title {
 	width: auto;
 }
@@ -62,9 +112,22 @@ h3 {
 	padding: 0;
 }
 
-
 #new-weekly {
 	margin:auto;
 	padding:0;
 	width: 1400px;
 }
+
+#new-plan {
+	width: 200px;
+	text-align: center;
+}
+
+#currentdate {
+	text-align: center;
+}
+
+
+
+
+
