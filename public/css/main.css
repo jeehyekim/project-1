@@ -146,7 +146,7 @@ h3.plan-name {
 }
 
 .footer {
-	position: absolute;
+	position: fixed;
 	bottom: 0;
 	height: 60px;
 	width: 100%;
@@ -188,6 +188,10 @@ h3.plan-name {
 
 #currentdate {
 	text-align: center;
+}
+
+.space {
+	height: 200px;
 }
 
 .col-sm-4{

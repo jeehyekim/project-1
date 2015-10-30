@@ -36,7 +36,7 @@
                 </div>
                   <!-- <div class="panel-body"> -->
                   <% for(var k = 0; k < days[j].todos.length; k++) { %>
-                      <li class="list-group-item panel-body"> <%= days[j].todos[i] ? days[j].todos[k].body : '' %> </li>
+                      <li class="list-group-item panel-body"> <%= days[j].todos[k] ? days[j].todos[k].body : '' %></li>
                   <% } %>
                   <!-- </div> -->
               </div>
@@ -45,8 +45,9 @@
         </div>
       <% } %>
     </div>
-  </div>
+  <div class="space"></div>
   <% include _footer.ejs %>
+  </div>
   </body>
 
 </html>
