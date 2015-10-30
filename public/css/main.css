@@ -116,6 +116,7 @@ a.btn {
 .panels {
 	height: 100px;
 	clear: both;
+	margin-top: 50px;
 	font-family: 'Roboto', sans-serif;
 }
 
