@@ -18,20 +18,20 @@
     </nav>
 
     <div class="container" id="currentdate">
-      <h5>Today is:</h5>
-      <h2>Friday, October 23, 2015</h2>
+      <h5>Hello.</h5>
+      <h2>Friday, October 30, 2015</h2>
     </div>
 
 
-    <div class="container" id="new-weekly">
+    <div class="container" id="new-weekly" >
       <% for(var i = 0; i<plans.length; i++) { %>
         <div class="panels row">
-          <div id="<%= plans[i]._id %>">
+          <div id="<%= plans[i]._id %>" styles="width:1400px;">
             <h3 class="plan-name"> <%= plans[i].title %> </h3>
             <% for(var j = 0; j< plans[i].days.length; j++) { %>
             <% var days = plans[i].days; %>
-              <div class="panel col-xs-1" >
-                <div class="panel-heading">
+              <div class="col-xs-1" >
+                <div class="panel-heading" >
                   <h4 class="panel-title"> <%= days[j].name %> </h4>
                 </div>
                   <!-- <div class="panel-body"> -->
@@ -43,9 +43,11 @@
             <% } %>
           </div>
         </div>
+      <hr>
       <% } %>
     </div>
   </div>
+  <% include _footer.ejs %>
   </body>
 
 </html>

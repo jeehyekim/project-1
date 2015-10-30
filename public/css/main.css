@@ -19,11 +19,34 @@ h1 {
 h2 {
 	text-align: center;
 	margin-bottom: 40px;
+	font-family: 'Montserrat', sans-serif;
+	font-size:40px;
+	font-weight: 700;
+	color:#00ccd6;
+
 }
 
 h3, p {
 	text-align: center;
 	margin: 0;
+}
+
+h4, li {
+	font-family: 'Roboto', sans-serif;
+}
+
+h3, h4 {
+	text-align: center;
+	color: #00ccd6;
+}
+
+h3 {
+	font-weight: 700;
+}
+
+h5 {
+	color:#00ccd6;
+	font-size: 20px;
 }
 
 p {
@@ -37,9 +60,13 @@ h4.panel-title {
 	font-size: 20px;
 }
 
-button {
+.btn {
 	background-color: #00ccd6;
 	color:white;
+}
+
+a.btn {
+	background-color: white;
 }
 
 .navbar {
@@ -82,15 +109,23 @@ button {
 
 .col-xs-1 {
 	width: 200px;
+	border: 1px solid #00ccd6;
+	height: 300px;
 }
 
 .panels {
 	height: 100px;
 	clear: both;
+	font-family: 'Roboto', sans-serif;
+}
+
+div.panel {
+	padding: 0;
 }
 
 .panel-heading {
 	border:none;
+	text-decoration: underline;
 	padding:none; !important
 	text-align: center;
 }
@@ -99,18 +134,31 @@ button {
 	text-align: center;
 }
 
-.plan-name {
+h3.plan-name {
 	margin-bottom: 20px;
+	width: 1400px;
+	margin-right: 0px;
+}
+
+.list-group-item {
+	border:none;
+}
+
+.footer {
+	position: absolute;
+	bottom: 0;
+	height: 60px;
+	width: 100%;
+	background-color: #b3f1f2;
 }
 
 #login-link {
 	margin-right: 20px;
+	color:#b3f1f2;
 }
 
-/*#popover {
-	font-size: 24px;
-}
-*/
+
+
 #new-list-title {
 	width: auto;
 }
@@ -123,7 +171,7 @@ button {
 
 #new-weekly {
 	margin:auto;
-	padding:0;
+	padding:10px;
 	width: 1400px;
 }
 
@@ -132,11 +180,21 @@ button {
 	text-align: center;
 }
 
+.form-control {
+	margin: 5px;
+	border: 1px solid #00ccd6;
+}
+
 #currentdate {
 	text-align: center;
 }
 
-
+.col-sm-4{
+	margin-top:20px;
+	font-size: 16px;
+	font-weight: 500;
+	color:#00ccd6;
+}
 
 
 

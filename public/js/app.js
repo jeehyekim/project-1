@@ -4,6 +4,7 @@ $(document).ready(function(){
   console.log('Hey, Earth!');
 
 
+
   //signup modal
   $('#signup-button').on('submit', function(e){
   		// e.preventDefault();
@@ -15,7 +16,7 @@ $(document).ready(function(){
 $('#signup').on('submit', function(e) {
   // e.preventDefault();
   var signupData = $('#signup').serialize();
-  
+
   console.log('signup data is: ' , signupData);
 
   $.post('/users', signupData, function(err, response) {
@@ -75,7 +76,7 @@ $('#signup').on('submit', function(e) {
       console.log('this is my new to do: ', todo);
      
       $.post('/days/' + dayId + "/todos", todo, function(data) {
-        var todo = "<li class='list-group-item'>" + data.body + "<span data-id='new-todo'class='close delete'></span></li>";
+        var todo = "<li class='list-group-item'>" + data.body + "<span data-id='new-todo'class='close delete'>x</span></li>";
         console.log("passed in data:", data);
         // $('.panel-heading').siblings('.day-todos').first().append(todo);
         $(dayPanel).append(todo);

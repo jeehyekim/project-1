@@ -39,6 +39,7 @@ app.get('/', function(req, res) {
 
 //home - what user sees after logging in
 app.get('/home', function(req, res) {
+	
 	Plan.find({}).limit(10).populate('days').exec(function(err,plans) {
 		if(err) console.log(err);
   		res.render("home", {plans: plans});
@@ -47,20 +48,20 @@ app.get('/home', function(req, res) {
 
 
 // sign up route
-app.get('/signup', function (req, res) {
-  res.render('home');
-});
+// app.get('/signup', function (req, res) {
+//   res.render('home');
+// });
 
 // create new user / sign up
-app.post('/users', function(req, res) {
-	console.log('request email: ', req.body.email);
-	res.json('create user works');
-});
+// app.post('/users', function(req, res) {
+// 	console.log('request email: ', req.body.email);
+// 	res.json('create user works');
+// });
 
 
-app.get('/', function(req, res) {
-	console.log("login after signing up");
-});
+// app.get('/', function(req, res) {
+// 	console.log("login after signing up");
+// });
 
 
 app.post('/users', function (req, res) {
