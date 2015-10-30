@@ -1,43 +1,66 @@
-
-// index GET '/plans'
-// create POST '/plans'
-// show GET '/plans/:id'
-// destroy DELETE '/plans/:id'
-// update PUT '/plans/:id'
+WEEKHACK
 
 
-show '/home'
- // get plan from database
+DESCRIPTION
+WeekHack utilizes the concept of themed days to help optimize productivity and manage mental energy. By grouping related tasks together, themed days free users’ minds to focus on the tasks that are critical to making progress in all areas of their lives. By creating and customizing their week for their needs, users can quickly glance at their day and let WeekHack remind them of the tasks to be completed
 
-create
-x // return to client with new plan template 
-x  // save days into plan on create plan - brings back plan with seven ids
-x  // loop over days inside of plan show.
 
-x // submit new to do form with day id.
-x // todo create route post - days / :id/ todos ??
-x // test creating new todos
-x // return the todo
-x // append to right day - yay thanks Matt.
-
- // create POST route when receiving new todos
- // create GET route when rendering page back with appended todos
-
- // render all the saved plans in database on the homepage
- // create user schema
- // validate signup and login
- // set up password salt and hash
+WEEKHACK'S HEROKU LINK
+https://aqueous-mesa-2420.herokuapp.com/
 
 
 
+WIREFRAMES
+
+-will be scanned and uploaded
 
 
-x // figure out why loop is creating new blank 'day' div
- // styling. get rid of jumbotron. background image or background color
- // find googlefont to use
- // FIGURE OUT WHAT YOU'RE CALLING YOUR APP. like any day now... >:(
- // logo design for app
- // create readme documentation
- // fill out project checkin survey
- //
+
+USER STORY
+
+“Hi, I'm Debbie the Designer, I found WeekHack on google and I like the "Graphic Design business" week plan. I sign up to add use this plan. I customize it to my liking.”
+
+
+Guests are able to browse through plans other users have created but do not have the ability to edit or delete plans. Once they sign up and log in, they will be able to not ony browse through plans other users have created but also clone them. Once cloned, users can edit and further customize the plan for their own needs. Users also have the ability to create new plans.
+
+
+
+ENTITY RELATIONSHIP DIAGRAM
+
+-will be uploaded
+
+
+
+EXTERNAL APIs USED
+
+No external APIs used. 
+
+
+
+LIBRARIES USED
+
+ -jQuery
+
+
+
+WISHLIST / FUTURE DEVELOPMENT
+
+-Get user auth working
+-associate users with their plans
+-make so that if not logged in, cannot edit/delete
+-add ability to clone plans others have created
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
