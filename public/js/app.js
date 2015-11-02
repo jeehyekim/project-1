@@ -88,6 +88,19 @@ $('#signup').on('submit', function(e) {
 
   });
 
+  //display current date/time on home page
+
+    var currentDate = new Date();
+    var day = currentDate.getDate();
+    var month = currentDate.getMonth() + 1;
+    var year = currentDate.getFullYear();
+    var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    var nowDate = "<h2>" + months[month-1] + " " + day + "," + " " + year + "</h2>";
+    // document.write("<b>" months[month] + " " + day + "," + " " + year + "</b>");
+    $('#currentdate').append(nowDate);
+
+
+
   //show stored plans on home page
   
 
