@@ -11,7 +11,7 @@ $(document).ready(function(){
   		$('signup-modal').modal();
   		console.log('clicked on sign up');
   });
-
+ 
 
 $('#signup').on('submit', function(e) {
   // e.preventDefault();

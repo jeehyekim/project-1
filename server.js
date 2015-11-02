@@ -37,16 +37,6 @@ app.get('/', function(req, res) {
   res.render("index");
 });
 
-//home - what user sees after logging in
-app.get('/home', function(req, res) {
-	
-	Plan.find({}).limit(10).populate('days').exec(function(err,plans) {
-		if(err) console.log(err);
-  		res.render("home", {plans: plans});
-	});
-});
-
-
 // sign up route
 // app.get('/signup', function (req, res) {
 //   res.render('home');
@@ -63,6 +53,14 @@ app.get('/home', function(req, res) {
 // 	console.log("login after signing up");
 // });
 
+//home - what user sees after logging in
+app.get('/home', function(req, res) {
+	
+	Plan.find({}).limit(10).populate('days').exec(function(err,plans) {
+		if(err) console.log(err);
+  		res.render("home", {plans: plans});
+	});
+});
 
 app.post('/users', function (req, res) {
   // use the email and password to authenticate here
@@ -71,27 +69,7 @@ app.post('/users', function (req, res) {
   });
 });
 
-
-// createDays function - callback
-// function createDays(callback) {
-// 	var daysList = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-// 	var days = [];
-
-// 	for  (var i in daysList) {
-// 		console.log(daysList[i]);
-// 		Day.create({name: daysList[i]}, function(err, day) {
-// 			if(err) console.log(err);
-// 			days.push(day);
-// 			console.log(day);
-// 			if (i == daysList.length-1) {
-// 				console.log('hi');
-// 				callback(days);
-// 			}
-// 		});
-// 	}
-// }
 	
-
 // create new plan - repeating days
 app.post('/plans', function(req, res) {
 	// console.log("req.body is: " ,req.body);
@@ -201,6 +179,25 @@ app.get('/home', function(req, res) {
 // 		res.json(plan);	
 // 	});
 // });
+
+// createDays function - callback
+// function createDays(callback) {
+// 	var daysList = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+// 	var days = [];
+
+// 	for  (var i in daysList) {
+// 		console.log(daysList[i]);
+// 		Day.create({name: daysList[i]}, function(err, day) {
+// 			if(err) console.log(err);
+// 			days.push(day);
+// 			console.log(day);
+// 			if (i == daysList.length-1) {
+// 				console.log('hi');
+// 				callback(days);
+// 			}
+// 		});
+// 	}
+// }
 
 console.log("It lives!");
 
